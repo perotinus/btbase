@@ -1,4 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-PROJECT(btbasenfc C)
+PROJECT(btbasenfc)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -g")
 add_subdirectory(src)
 add_subdirectory(utils)

@@ -25,14 +25,18 @@ BTLibIface::BTLibIface()
 void 
 BTLibIface::readBase() 
 {
-    unsigned char btype = btbaselib_readbase();
+    int btype_int = btbaselib_readbase();
     
-    if (btype == BSETUP_NOBASE) {
+    if (btype_int == BSETUP_NOBASE) {
         QMessageBox m;
         m.setText("BattleTag base not found.");
         m.exec();
         return;
     }
+
+    //Lossy cast OK - if the function succeeded,
+    //there will only be values between 1 and 256
+    unsigned char btype = (unsigned char)btype_int;
 
     QString s = QString("Found base: ");
     switch (btype) {

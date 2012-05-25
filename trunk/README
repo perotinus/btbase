@@ -8,6 +8,12 @@ Intro
 This library/utility allows users and programmers to read and write (or write
 code that reads and writes) BattleTag bases.
 
+There are a few major components:
+-btbaseutil     - a command-line application to read and write BattleTag bases
+-test           - a command-line application that tests interaction with the library
+-btbaseutil_qt  - a GUI application to read/write BattleTag bases (most people will
+                  want this)
+
 --------------------------
 Requirements/Installation
 --------------------------

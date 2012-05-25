@@ -6,17 +6,20 @@
 
 find_package(Qt4 REQUIRED)
 
+SET(QT_USE_QTGUI TRUE)
 #-----------------------
 #Set up headers/sources
 #-----------------------
 set(btbaseutil_qt_SRCS 
     BT_QMainWindow.cpp
+    QHexSpinBox.cpp
     btbaseutil_qt.cpp
     btlibiface.cpp
 )
 
 set(btbaseutil_qt_HEADERS
     BT_QMainWindow.h
+    QHexSpinBox.h
     btlibiface.h
 )
 
@@ -30,6 +33,7 @@ QT4_WRAP_UI(btbaseutil_qt_HEADERS_FORMS ${btbaseutil_qt_FORMS})
 
 #Need this to make sure that the generated files are found
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR})
 
 #-------------------
 #Add includes and such

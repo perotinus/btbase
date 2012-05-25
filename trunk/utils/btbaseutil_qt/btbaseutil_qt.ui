@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+ <author>Jonathan MacMillan</author>
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
@@ -183,7 +184,7 @@
      <string>Write major/minor</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="sb_wrmaj">
+   <widget class="QHexSpinBox" name="sb_wrmaj">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -193,10 +194,10 @@
      </rect>
     </property>
     <property name="maximum">
-     <number>16</number>
+     <number>15</number>
     </property>
    </widget>
-   <widget class="QSpinBox" name="sb_wrmin">
+   <widget class="QHexSpinBox" name="sb_wrmin">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -206,7 +207,7 @@
      </rect>
     </property>
     <property name="maximum">
-     <number>16</number>
+     <number>15</number>
     </property>
    </widget>
   </widget>
@@ -221,6 +222,13 @@
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QHexSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>QHexSpinBox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

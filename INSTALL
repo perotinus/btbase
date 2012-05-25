@@ -2,9 +2,9 @@ This program uses CMake.  It has been tested on Mac OSX 10.6.8, should work on L
 and will require more work to port to Windows.
 
 Required libraries/programs:
--cmake (>= 2.6)
--libnfc (>= 1.6.0)
--libusb
+-cmake (>= 2.6, only tested with 2.8.8)
+-libnfc (>= 1.6.0, only tested with 1.6.0-rc1)
+-libusb (for libnfc)
 -PCSC libraries (included with OSX, libpcsclite on Linux/BSD, with Microsoft SDK on Windows)
 
 To build:

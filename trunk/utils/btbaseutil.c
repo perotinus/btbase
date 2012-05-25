@@ -45,7 +45,7 @@
 #include <nfc/nfc.h>
 
 #include "nfc-utils.h"
-#include "mifare.h"
+#include "../src/mifare.h"
 
 static nfc_device *pnd;
 static nfc_target nt;
@@ -83,14 +83,6 @@ static unsigned char basetypeMajMin(const char* bt) {
 
 }
 
-static void
-print_success_or_failure (bool bFailure, uint32_t * uiCounter)
-{
-  printf ("%c", (bFailure) ? 'x' : '.');
-  if (uiCounter)
-    *uiCounter += (bFailure) ? 0 : 1;
-}
-
 static  bool
 read_card (void)
 {
@@ -106,10 +98,6 @@ read_card (void)
       break;
     }
 
-    //print_success_or_failure (bFailure, &uiReadedPages);
-    //print_success_or_failure (bFailure, &uiReadedPages);
-    //print_success_or_failure (bFailure, &uiReadedPages);
-    //print_success_or_failure (bFailure, &uiReadedPages);
   }
   printf ("Done reading BattleTag base...");
   fflush (stdout);

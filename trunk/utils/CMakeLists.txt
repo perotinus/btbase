@@ -1,4 +1,7 @@
+add_subdirectory(btbaseutil_qt)
+
 add_executable(test test.c)
+add_executable(btbaseutil btbaseutil.c ../src/mifare.c)
 
 ####################
 #Grab external libs
@@ -17,12 +20,8 @@ find_package(LIBNFC 1.6.0 REQUIRED)
 include_directories(${LIBNFC_INCLUDE_DIRS})
 set(LIBS ${LIBS} ${LIBNFC_LIBRARIES})
 
-#libbtbase
-if (APPLE)
-set(LIBS ${LIBS} "${CMAKE_BINARY_DIR}/src/libbtbase.dylib")
-elseif(UNIX)
-set(LIBS ${LIBS} "${CMAKE_BINARY_DIR}/src/libbtbase.so")
-endif(APPLE)
+#Include directory for libbtbase.h
 include_directories("${PROJECT_SOURCE_DIR}/src/")
 
-target_link_libraries(test ${LIBS})
+target_link_libraries(test ${LIBS} btbase)
+target_link_libraries(btbaseutil ${LIBS} )

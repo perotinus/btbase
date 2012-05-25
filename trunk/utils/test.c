@@ -21,7 +21,7 @@ int main(int argc, char**argv) {
     if (btype == BSETUP_NOBASE)
         fprintf(stderr, "No base found!\n");
     else {
-        printf("Found base:", btype);
+        printf("Found base:");
         switch (btype) {
             case 0x30: printf("MED1"); break;
             case 0x31: printf("MED2"); break;

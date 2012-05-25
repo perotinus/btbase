@@ -6,8 +6,6 @@ add_library(btbase STATIC libbtbase.c mifare.c)
 #Shared lib
 add_library(btbase-shared SHARED libbtbase.c mifare.c)
 set_target_properties(btbase-shared PROPERTIES OUTPUT_NAME "btbase")
-#Util
-add_executable(btbaseutil btbaseutil.c mifare.c)
 
 
 ####################
@@ -32,5 +30,4 @@ set(LIBS ${LIBS} ${LIBNFC_LIBRARIES})
 ########################
 #Link with external libs
 ########################
-target_link_libraries(btbaseutil ${LIBS} )
 target_link_libraries(btbase-shared ${LIBNFC_LIBRARIES})

@@ -117,15 +117,12 @@ write_card(unsigned char mm)
 }
 
 unsigned char btbaselib_custbt(int major, int minor) {
-    return (unsigned char) ((minor << 4) + major & 0x0f);
+    return (unsigned char) ((minor << 4) + (major & 0x0f));
 }
 
 int
 btbaselib_setup()
 {
-    bool    bReadAction;
-    FILE   *pfDump;
-
     nfc_init(NULL);
   
     //Try to open the NFC device
@@ -145,6 +142,10 @@ btbaselib_setup()
 int 
 checktag() 
 {
+
+    //Zero out nt
+    memset(&nt, 0, sizeof(nt));
+
     //Let the device only try once to find a tag
     if (nfc_device_set_property_bool(pnd, NP_INFINITE_SELECT, false) < 0) {
         nfc_perror(pnd, "nfc_device_set_property_bool");

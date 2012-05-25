@@ -10,17 +10,26 @@ find_package(Qt4 REQUIRED)
 #Set up headers/sources
 #-----------------------
 set(btbaseutil_qt_SRCS 
-    BT_QWidget.cpp
+    BT_QMainWindow.cpp
     btbaseutil_qt.cpp
     btlibiface.cpp
 )
 
 set(btbaseutil_qt_HEADERS
-    BT_QWidget.h
+    BT_QMainWindow.h
     btlibiface.h
 )
 
+SET(btbaseutil_qt_FORMS 
+    btbaseutil_qt.ui
+)
+
+
 QT4_WRAP_CPP(btbaseutil_qt_HEADERS_MOC ${btbaseutil_qt_HEADERS})
+QT4_WRAP_UI(btbaseutil_qt_HEADERS_FORMS ${btbaseutil_qt_FORMS})
+
+#Need this to make sure that the generated files are found
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
 
 #-------------------
 #Add includes and such
@@ -61,6 +70,7 @@ include_directories("${PROJECT_SOURCE_DIR}/src/")
 #---------------------------
 add_executable(btbaseutil_qt 
     ${btbaseutil_qt_SRCS}
+    ${btbaseutil_qt_HEADERS_FORMS}
     ${btbaseutil_qt_HEADERS_MOC}
 )
 

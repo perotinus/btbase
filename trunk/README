@@ -1,0 +1,57 @@
+---------------------------------------------------------------------
+-btbase - library/utility for reading/writing BattleTag base stations
+---------------------------------------------------------------------
+
+-------------
+Intro
+-------------
+This library/utility allows users and programmers to read and write (or write
+code that reads and writes) BattleTag bases.
+
+--------------------------
+Requirements/Installation
+--------------------------
+See the INSTALL file.
+
+-------------
+Information
+-------------
+BattleTag base stations are simply Mifare Ultralight cards.  This library and
+utility are designed to facilitate writing to Mifare Ultralight (and Ultralight
+C, which are compatible) cards, allowing the user to read and write BattleTag
+bases.  Using this software, it is possible to make copies of the given
+BattleTag bases, as well as making additional bases that will respond much like
+
+So, there are potentially:
+-16 medkit types
+-16 ammo types
+-16 base types (!!)
+
+Of course, there could be more - this limit of 16 each is determined by the fact
+that each of the ammo/medkit/base types have the same major number, and with the
+major number fixed, there are only 16 possible combinations with minor numbers.
+
+There are 256 possible major-minor combinations that the gun can recognize.
+Ubisoft only provides 8 base types, leaving a lot of room for expansion.  
+
+It is possible to write to the Ubisoft base stations.  Be careful, you can turn
+your ammo base into a medkit if you're not careful!  This could be confusing
+during gameplay, though perhaps this could be part of some sort of crazy,
+confusing game.
+ 
+-------------
+Bug reporting
+-------------
+Report bugs by filling out a bug-report form at
+http://code.google.com/p/libnfc/issues/list
+
+Please be as detailed as possible when filling out the report:
+-OS version
+-version of external libraries
+-circumstances to recreate problems
+-anything else that might be helpful
+
+---------------
+Copyright Info
+---------------
+Battle Tag is a trademark of Ubisoft Entertainment.

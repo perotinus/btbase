@@ -1,18 +1,19 @@
+#ifndef BTLIBIFACE_H
+#define BTLIBIFACE_H
+
 #include <QObject>
 
 class BTLibIface : public QObject
 {
-    Q_OBJECT
+
+Q_OBJECT
 
 public:
 
     BTLibIface();
-
-public slots:
-
-    void setmm(unsigned char x);
     void readBase(); 
+    void writeBase(unsigned char v);
 
-private:
-    unsigned char mm; 
 };
+
+#endif

@@ -65,7 +65,7 @@ int btbaselib_setup();
 void btbaselib_close();
 
 //Read/write
-unsigned char btbaselib_readbase();
+int btbaselib_readbase();
 int btbaselib_writebase(unsigned char btype);
 
 #endif

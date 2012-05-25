@@ -16,11 +16,15 @@ int main(int argc, char**argv) {
     //    return -1;
     //}
     
-    unsigned char btype = btbaselib_readbase();
+    int btype_int = btbaselib_readbase();
 
-    if (btype == BSETUP_NOBASE)
+    if (btype_int == BSETUP_NOBASE)
         fprintf(stderr, "No base found!\n");
     else {
+        //Lossy cast OK - if the read was good, there
+        //will only be a value between 0 and 255 returned
+        unsigned char btype = (unsigned char)btype_int;
+
         printf("Found base:");
         switch (btype) {
             case 0x30: printf("MED1"); break;

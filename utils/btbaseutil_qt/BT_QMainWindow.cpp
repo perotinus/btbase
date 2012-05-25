@@ -82,7 +82,7 @@ BT_QMainWindow::writeMMClicked()
     int major = ui->sb_wrmaj->value();
     int minor = ui->sb_wrmin->value();
 
-    btli->writeBase((unsigned char)((minor << 4) + (major & 0x0f)));
+    btli->writeBase((unsigned char)((major << 4) + (minor & 0x0f)));
 
 }
 

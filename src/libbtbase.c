@@ -165,7 +165,7 @@ checktag()
     return BSETUP_FOUNDBASE;
 }
 
-unsigned char 
+int 
 btbaselib_readbase() 
 {
     if (checktag() == BSETUP_NOBASE) {
@@ -177,7 +177,7 @@ btbaselib_readbase()
         memcpy(basedata, &mtDump, sizeof (mtDump));
     }
     
-    return basedata[BTBASELIB_MMPOS];
+    return (int)basedata[BTBASELIB_MMPOS];
 }
 
 int 

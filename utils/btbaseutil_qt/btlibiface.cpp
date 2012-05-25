@@ -80,7 +80,7 @@ BTLibIface::writeBase(unsigned char v)
             case 0x51: s.append("T-Base 2 (blue)"); break;
             case 0x52: s.append("T-Base 3 (yellow)"); break;
             case 0x53: s.append("T-Base 4 (green)"); break;
-            default: s.append(QString::number(btype, 16)); break;
+            default: s.append(QString::number(v, 16)); break;
         }
 
         m.setText(s);

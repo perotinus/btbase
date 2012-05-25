@@ -23,7 +23,6 @@ set(LIBS ${LIBS} "${CMAKE_BINARY_DIR}/src/libbtbase.dylib")
 elseif(UNIX)
 set(LIBS ${LIBS} "${CMAKE_BINARY_DIR}/src/libbtbase.so")
 endif(APPLE)
-
 include_directories("${PROJECT_SOURCE_DIR}/src/")
 
 target_link_libraries(test ${LIBS})

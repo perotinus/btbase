@@ -4,7 +4,11 @@
 
 int main(int argc, char**argv) {
 
-    btbaselib_setup();
+    int setup_status = btbaselib_setup();
+
+    if (setup_status != BSETUP_OK) {
+        fprintf(stderr, "Could not initialize NFC device.");
+    }
 
     //if (btbaselib_writebase(BASE_MED2) == BSETUP_NOBASE) {
     //    fprintf(stderr, "Could not write base!");

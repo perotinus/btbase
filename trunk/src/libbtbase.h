@@ -31,8 +31,8 @@
 
 #define BTBASELIB_MMPOS 24
 #define BTBASELIB_03POS 27
-//Return values from btbaselib_setup
-enum {BSETUP_OK, BSETUP_FOUNDBASE, BSETUP_NODEV, BSETUP_NOBASE, BSETUP_FAIL};
+//Return values from btbaselib_setup (start at 0x100 to avoid any of the 0xff base types)
+enum {BSETUP_OK=0x100, BSETUP_FOUNDBASE, BSETUP_NODEV, BSETUP_NOBASE, BSETUP_FAIL};
 
 //Basetypes
 enum {  

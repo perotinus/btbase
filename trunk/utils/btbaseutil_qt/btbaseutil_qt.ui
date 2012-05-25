@@ -123,12 +123,12 @@
     </item>
     <item>
      <property name="text">
-      <string>Medkit 1</string>
+      <string>Medkit (flat)</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Medkit 2</string>
+      <string>Medkit (rounded)</string>
      </property>
     </item>
     <item>

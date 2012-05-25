@@ -36,8 +36,8 @@ BTLibIface::readBase()
 
     QString s = QString("Found base: ");
     switch (btype) {
-        case 0x30: s.append("MedKit 1"); break;
-        case 0x31: s.append("MedKit 2"); break;
+        case 0x30: s.append("MedKit (flat)"); break;
+        case 0x31: s.append("MedKit (rounded)"); break;
         case 0x40: s.append("Ammo pack (4 bullets)"); break;
         case 0x41: s.append("Ammo pack (2 bullets)"); break;
         case 0x50: s.append("T-Base 1 (red)"); break;
@@ -72,8 +72,8 @@ BTLibIface::writeBase(unsigned char v)
         
         QString s("BattleTag base successfully written: ");
         switch (v) {
-            case 0x30: s.append("MedKit 1"); break;
-            case 0x31: s.append("MedKit 2"); break;
+            case 0x30: s.append("MedKit (flat)"); break;
+            case 0x31: s.append("MedKit (rounded)"); break;
             case 0x40: s.append("Ammo pack (4 bullets)"); break;
             case 0x41: s.append("Ammo pack (2 bullets)"); break;
             case 0x50: s.append("T-Base 1 (red)"); break;

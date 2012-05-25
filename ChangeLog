@@ -1,0 +1,16 @@
+May 24, 2012 - Version 0.1
+--------------------------
+
+Fixes:
+	-First version
+
+Improvements:
+	-CMake build system
+
+Changes:
+	-Created libbtbase library for easy C/C++ interaction with readers and
+	 bases
+	-Created test application to make sure it works
+	-Created btbaseutil program to work with bases from command line
+
+

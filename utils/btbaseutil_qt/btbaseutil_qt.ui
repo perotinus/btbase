@@ -113,12 +113,12 @@
     </property>
     <item>
      <property name="text">
-      <string>Ammo base - 2 bullets</string>
+      <string>Ammo pack (4 bullets)</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>Ammo base - 4 bullets</string>
+      <string>Ammo pack (2 bullets)</string>
      </property>
     </item>
     <item>
@@ -143,12 +143,12 @@
     </item>
     <item>
      <property name="text">
-      <string>T-Base 3 (green)</string>
+      <string>T-Base 3 (yellow)</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>T-Base 4 (yellow)</string>
+      <string>T-Base 4 (green)</string>
      </property>
     </item>
    </widget>

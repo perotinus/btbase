@@ -13,6 +13,7 @@ SET(QT_USE_QTGUI TRUE)
 #-----------------------
 set(btbaseutil_qt_SRCS 
     BT_QMainWindow.cpp
+    QBEditWidget.cpp
     QHexSpinBox.cpp
     btbaseutil_qt.cpp
     btlibiface.cpp
@@ -20,12 +21,14 @@ set(btbaseutil_qt_SRCS
 
 set(btbaseutil_qt_HEADERS
     BT_QMainWindow.h
+    QBEditWidget.h
     QHexSpinBox.h
     btlibiface.h
 )
 
 SET(btbaseutil_qt_FORMS 
     btbaseutil_qt.ui
+    qbeditwidget.ui
 )
 
 

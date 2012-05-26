@@ -19,15 +19,25 @@ public:
 
 protected:
     void closeEvent(QCloseEvent *event);
+    void openEditWindow(QString fname);
 
 public slots:
     void readClicked();
     void writeTypeClicked();
     void writeMMClicked();
 
+    //Menu slots
+    void newBaseFile();
+    void editBaseFile();
+    void importBaseFile();
+    void help();
+    void about();
+
 private:
     BTLibIface *btli;
     Ui::MainWindow *ui;
+
+
 };
 
 #endif

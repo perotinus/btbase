@@ -220,7 +220,84 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuBase_lists">
+    <property name="title">
+     <string>Bases</string>
+    </property>
+    <addaction name="actionNew_base_list"/>
+    <addaction name="actionEdit_base_list"/>
+    <addaction name="actionImport_base_list"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionBTBaseUtil_help"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuBase_lists"/>
+   <addaction name="menuHelp"/>
   </widget>
+  <action name="actionEdit_base_list">
+   <property name="text">
+    <string>&amp;Edit base list</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit a list of bases</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionImport_base_list">
+   <property name="text">
+    <string>&amp;Import base list</string>
+   </property>
+   <property name="toolTip">
+    <string>Import a list of bases</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionBTBaseUtil_help">
+   <property name="text">
+    <string>&amp;BTBaseUtil help</string>
+   </property>
+   <property name="toolTip">
+    <string>Get help for BTBaseUtil</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+   <property name="toolTip">
+    <string>About BTBaseUtil</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionCreate_base_list">
+   <property name="text">
+    <string>&amp;Create base list</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionNew_base_list">
+   <property name="text">
+    <string>New base list</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

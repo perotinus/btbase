@@ -14,6 +14,7 @@ BTLibIface::BTLibIface()
     
     if (status != BSETUP_OK) {
         QMessageBox m;
+        m.setIcon(QMessageBox::Critical);
         m.setText("NFC device not found.");
         m.exec();
         exit(-1);
@@ -29,6 +30,7 @@ BTLibIface::readBase()
     
     if (btype_int == BSETUP_NOBASE) {
         QMessageBox m;
+        m.setIcon(QMessageBox::Warning);
         m.setText("BattleTag base not found.");
         m.exec();
         return;
@@ -66,6 +68,7 @@ BTLibIface::writeBase(unsigned char v)
     if (retval == BSETUP_NOBASE) {
 
         QMessageBox m;
+        m.setIcon(QMessageBox::Warning);
         m.setText("BattleTag base not found.");
         m.exec();
         return;

@@ -23,5 +23,10 @@ set(LIBS ${LIBS} ${LIBNFC_LIBRARIES})
 #Include directory for libbtbase.h
 include_directories("${PROJECT_SOURCE_DIR}/src/")
 
-target_link_libraries(test ${LIBS} btbase)
+if (APPLE)
+    target_link_libraries(test ${LIBS} btbase)
+else (NOT APPLE)    
+    target_link_libraries(test ${LIBS} btbase)
+endif (APPLE)
+
 target_link_libraries(btbaseutil ${LIBS} )

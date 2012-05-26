@@ -82,11 +82,11 @@ if( APPLE )
         ${btbaseutil_qt_HEADERS_MOC} )
 
     add_custom_command(TARGET btbaseutil_qt POST_BUILD
-      COMMAND mkdir ${CMAKE_CURRENT_BINARY_DIR}/BTBaseUtil.app/Contents/Resources
+      #COMMAND mkdir ${CMAKE_CURRENT_BINARY_DIR}/BTBaseUtil.app/Contents/Resources
       COMMAND cp ${MACOSX_BUNDLE_ICON_FILE} ${CMAKE_CURRENT_BINARY_DIR}/BTBaseUtil.app/Contents/Resources
     )
 
-else( APPLE )
+else( NOT APPLE )
     add_executable(btbaseutil_qt 
         ${btbaseutil_qt_SRCS}
         ${btbaseutil_qt_HEADERS_FORMS}

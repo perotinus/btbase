@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
     BT_QMainWindow *window = new BT_QMainWindow;
 
     window->show();
+    window->setWindowTitle("BTBaseUtil");
     return app.exec();
 }
 

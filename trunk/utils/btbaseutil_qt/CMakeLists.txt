@@ -6,6 +6,7 @@
 
 find_package(Qt4 REQUIRED)
 
+
 SET(QT_USE_QTGUI TRUE)
 
 #-----------------------
@@ -78,11 +79,17 @@ if( APPLE )
     set( MACOSX_BUNDLE_SHORT_VERSION_STRING 0.2 )
     set( MACOSX_BUNDLE_VERSION 0.2 )
     set( MACOSX_BUNDLE_LONG_VERSION_STRING Version 0.2 )
-    
+
+
+    install(CODE "
+        include(BundleUtilities)
+        fixup_bundle(\"${CMAKE_CURRENT_BINARY_DIR}/BTBaseUtil.app\" \"\" \"\")"
+        COMPONENT Runtime)
     add_executable(btbaseutil_qt MACOSX_BUNDLE
         ${btbaseutil_qt_SRCS}
         ${btbaseutil_qt_HEADERS_FORMS}
         ${btbaseutil_qt_HEADERS_MOC} )
+
 
     add_custom_command(TARGET btbaseutil_qt POST_BUILD
       #COMMAND mkdir ${CMAKE_CURRENT_BINARY_DIR}/BTBaseUtil.app/Contents/Resources

@@ -7,6 +7,7 @@
 find_package(Qt4 REQUIRED)
 
 SET(QT_USE_QTGUI TRUE)
+
 #-----------------------
 #Set up headers/sources
 #-----------------------
@@ -61,24 +62,40 @@ find_package(LIBNFC 1.6.0 REQUIRED)
 include_directories(${LIBNFC_INCLUDE_DIRS})
 set(LIBS ${LIBS} ${LIBNFC_LIBRARIES})
 
-#libbtbase
-if (APPLE)
-set(LIBS ${LIBS} "${CMAKE_BINARY_DIR}/src/libbtbase.a")
-elseif(UNIX)
-set(LIBS ${LIBS} "${CMAKE_BINARY_DIR}/src/libbtbase.a")
-endif(APPLE)
+#include dir for libbtbase.h
 include_directories("${PROJECT_SOURCE_DIR}/src/")
 
 #---------------------------
 #QT app executable
-#---------------------------
-add_executable(btbaseutil_qt 
-    ${btbaseutil_qt_SRCS}
-    ${btbaseutil_qt_HEADERS_FORMS}
-    ${btbaseutil_qt_HEADERS_MOC}
-)
+#--------------------------
+
+#Create an OSX bundle
+if( APPLE )
+    set( MACOSX_BUNDLE_ICON_FILE "${CMAKE_SOURCE_DIR}/utils/btbaseutil_qt/BTBaseUtil.icns" )
+    set( MACOSX_BUNDLE_SHORT_VERSION_STRING 0.2 )
+    set( MACOSX_BUNDLE_VERSION 0.2 )
+    set( MACOSX_BUNDLE_LONG_VERSION_STRING Version 0.2 )
+    
+    add_executable(btbaseutil_qt MACOSX_BUNDLE
+        ${btbaseutil_qt_SRCS}
+        ${btbaseutil_qt_HEADERS_FORMS}
+        ${btbaseutil_qt_HEADERS_MOC} )
+
+    add_custom_command(TARGET btbaseutil_qt POST_BUILD
+      COMMAND mkdir ${CMAKE_CURRENT_BINARY_DIR}/BTBaseUtil.app/Contents/Resources
+      COMMAND cp ${MACOSX_BUNDLE_ICON_FILE} ${CMAKE_CURRENT_BINARY_DIR}/BTBaseUtil.app/Contents/Resources
+    )
+
+else( APPLE )
+    add_executable(btbaseutil_qt 
+        ${btbaseutil_qt_SRCS}
+        ${btbaseutil_qt_HEADERS_FORMS}
+        ${btbaseutil_qt_HEADERS_MOC}
+    )
+endif( APPLE)
+
 
 #Rename
 set_target_properties(btbaseutil_qt PROPERTIES OUTPUT_NAME "BTBaseUtil")
 
-TARGET_LINK_LIBRARIES(btbaseutil_qt ${QT_LIBRARIES} ${LIBS})
+TARGET_LINK_LIBRARIES(btbaseutil_qt btbase ${QT_LIBRARIES} ${LIBS})

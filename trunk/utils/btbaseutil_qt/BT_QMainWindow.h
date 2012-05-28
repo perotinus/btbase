@@ -19,7 +19,7 @@ public:
 
 protected:
     void closeEvent(QCloseEvent *event);
-    void openEditWindow(QString fname);
+    void openEditWindow(QString fname, QString data, bool populateTable);
 
 public slots:
     void readClicked();

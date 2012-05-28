@@ -25,15 +25,24 @@ public slots:
     void delItem();
     void save();
     void closeBtn();
+    void spinBoxEdited(int i);
     
 
 public:
     void setFname(QString s) {fname = s;}
-    QString getFname() {return fname;}
+    //QString getFname() {return fname;}
+
+    void setData(QString s) {data = s;}
+    //QString getData() {return data;}
+    
+    void fillTree();
 
 private:
     Ui::QBEditWidget *ui; 
+
     QString fname;
+    QString data;
+
     bool changed;
     int count;
 

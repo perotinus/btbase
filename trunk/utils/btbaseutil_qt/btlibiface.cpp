@@ -41,19 +41,13 @@ BTLibIface::readBase()
     unsigned char btype = (unsigned char)btype_int;
 
     QString s = QString("Found base: ");
-    switch (btype) {
-        case 0x30: s.append("MedKit (flat)"); break;
-        case 0x31: s.append("MedKit (rounded)"); break;
-        case 0x40: s.append("Ammo pack (4 bullets)"); break;
-        case 0x41: s.append("Ammo pack (2 bullets)"); break;
-        case 0x50: s.append("T-Base 1 (red)"); break;
-        case 0x51: s.append("T-Base 2 (blue)"); break;
-        case 0x52: s.append("T-Base 3 (yellow)"); break;
-        case 0x53: s.append("T-Base 4 (green)"); break;
-        default: s.append(QString::number(btype, 16).toUpper()); break;
-    }
+
+    QString bName = baseBytes.key(btype, QString::number(btype,16).toUpper());
+
+    s.append(bName);
 
     QMessageBox m;
+    m.setIcon(QMessageBox::Information);
     m.setText(s);
     m.exec();
     return;
@@ -77,7 +71,11 @@ BTLibIface::writeBase(unsigned char v)
 
         QMessageBox m;
         
+        m.setIcon(QMessageBox::Information);
         QString s("BattleTag base successfully written: ");
+        QString bName = baseBytes.key(v, QString::number(v,16).toUpper());
+        s.append(bName);
+/*
         switch (v) {
             case 0x30: s.append("MedKit (flat)"); break;
             case 0x31: s.append("MedKit (rounded)"); break;
@@ -89,7 +87,7 @@ BTLibIface::writeBase(unsigned char v)
             case 0x53: s.append("T-Base 4 (green)"); break;
             default: s.append(QString::number(v, 16).toUpper()); break;
         }
-
+*/
         m.setText(s);
         m.exec();
         return;

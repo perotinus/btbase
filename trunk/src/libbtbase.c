@@ -40,7 +40,6 @@
 
 #include <nfc/nfc.h>
 
-#include "nfc-utils.h"
 #include "mifare.h"
 
 #include "libbtbase.h"

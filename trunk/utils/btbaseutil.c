@@ -44,7 +44,6 @@
 
 #include <nfc/nfc.h>
 
-#include "nfc-utils.h"
 #include "../src/mifare.h"
 
 static nfc_device *pnd;
@@ -77,7 +76,7 @@ static unsigned char basetypeMajMin(const char* bt) {
     } else if (!strcmp(bt, "TBASE4")) {
         return (5<<4)+3;
     } else {
-        ERR ("No basetype called %s", bt);
+        exit(fprintf(stderr,"No basetype called %s", bt));
         return 0;
     }
 
@@ -168,7 +167,6 @@ main (int argc, const char *argv[])
     return 1;
   }
 
-  DBG ("\nChecking arguments and settings\n");
 
   bReadAction = tolower ((int) ((unsigned char) *(argv[1])) == 'r');
 
@@ -183,7 +181,7 @@ main (int argc, const char *argv[])
   // Try to open the NFC device
   pnd = nfc_open (NULL, NULL);
   if (pnd == NULL) {
-    ERR ("Error opening NFC device\n");
+    exit(fprintf(stderr,"Error opening NFC device\n"));
     return 1;
   }
 
@@ -202,7 +200,7 @@ main (int argc, const char *argv[])
 
   // Try to find a MIFARE Ultralight tag
   if (nfc_initiator_select_passive_target (pnd, nmMifare, NULL, 0, &nt) < 0) {
-    ERR ("no tag was found\n");
+    exit(fprintf(stderr,"no tag was found\n"));
     nfc_close (pnd);
     nfc_exit (NULL);
     return 1;
@@ -210,7 +208,7 @@ main (int argc, const char *argv[])
 
   // Test if we are dealing with a MIFARE compatible tag
   if (nt.nti.nai.abtAtqa[1] != 0x44) {
-    ERR ("not a BattleTag base\n");
+    exit(fprintf(stderr,"not a BattleTag base\n"));
     nfc_close (pnd);
     nfc_exit (NULL);
     return EXIT_FAILURE;

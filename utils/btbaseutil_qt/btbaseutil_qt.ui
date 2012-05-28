@@ -112,46 +112,6 @@
       <height>26</height>
      </rect>
     </property>
-    <item>
-     <property name="text">
-      <string>Ammo pack (4 bullets)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Ammo pack (2 bullets)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Medkit (flat)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Medkit (rounded)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>T-Base 1 (red)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>T-Base 2 (blue)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>T-Base 3 (yellow)</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>T-Base 4 (green)</string>
-     </property>
-    </item>
    </widget>
    <widget class="Line" name="line_2">
     <property name="geometry">

@@ -75,16 +75,18 @@ include_directories("${PROJECT_SOURCE_DIR}/src/")
 
 #Create an OSX bundle
 if( APPLE )
+    set( MACOSX_VERSION "${PROJ_MAJOR}.${PROJ_MINOR}")
     set( MACOSX_BUNDLE_ICON_FILE "${CMAKE_SOURCE_DIR}/utils/btbaseutil_qt/BTBaseUtil.icns" )
-    set( MACOSX_BUNDLE_SHORT_VERSION_STRING 0.2 )
-    set( MACOSX_BUNDLE_VERSION 0.2 )
-    set( MACOSX_BUNDLE_LONG_VERSION_STRING Version 0.2 )
+    set( MACOSX_BUNDLE_SHORT_VERSION_STRING ${MACOSX_VERSION})
+    set( MACOSX_BUNDLE_VERSION ${MACOSX_VERSION})
+    set( MACOSX_BUNDLE_LONG_VERSION_STRING "Version ${MACOSX_VERSION}")
 
 
-    install(CODE "
+  install(CODE "
         include(BundleUtilities)
         fixup_bundle(\"${CMAKE_CURRENT_BINARY_DIR}/BTBaseUtil.app\" \"\" \"\")"
         COMPONENT Runtime)
+
     add_executable(btbaseutil_qt MACOSX_BUNDLE
         ${btbaseutil_qt_SRCS}
         ${btbaseutil_qt_HEADERS_FORMS}

@@ -1,0 +1,1 @@
+This software allows for easy manipulation of the BattleTag NFC bases.  Using it, a user can create duplicate BattleTag MedKits, Ammo bases, and T-Bases, or create new bases (up to 256 of them)
